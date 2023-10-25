@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <%# render nav %>
-    <%= yield %>
+    <main>
+        <%= render 'layouts/navbar' %>
+        <%= yield %>
+    </main>
   </body>
 </html>
