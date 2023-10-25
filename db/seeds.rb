@@ -8,8 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Post.create(title: "Sniper Elite: The Board Game", body: "Hidden movement game, 1 vs 3.", rating: "9")
-Post.create(title: "Code Names", body: "Team vs Team word game", rating: "8")
-Post.create(title: "Puerto Rico", body: "One of the original worker placement games", rating: "8")
-Post.create(title: "Sheriff of Nottingham", body: "Free for all game of deception and negotiation.", rating: "7")
-Post.create(title: "Power Grid", body: "Free for all game with bidding and cutthroat area control, similar to ticket to ride", rating: "9")
+User.create(email: "Kevinduffy615@gmail.com", password: "password", password_confirmation: "password")
+
+Post.create(title: "Sniper Elite: The Board Game", body: "Hidden movement game, 1 vs 3.", rating: "9", user_id: User.first.id)
+Post.create(title: "Code Names", body: "Team vs Team word game", rating: "8", user_id: User.first.id)
+Post.create(title: "Puerto Rico", body: "One of the original worker placement games", rating: "8", user_id: User.first.id)
+Post.create(title: "Sheriff of Nottingham", body: "Free for all game of deception and negotiation.", rating: "7", user_id: User.first.id)
+Post.create(title: "Power Grid", body: "Free for all game with bidding and cutthroat area control, similar to ticket to ride", rating: "9", user_id: User.first.id)

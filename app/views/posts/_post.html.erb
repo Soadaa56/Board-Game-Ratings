@@ -4,6 +4,10 @@
   </p>
 
   <p>
+    <strong>Posted by:</strong> <%= post.user.email.capitalize %>
+  </p>
+
+  <p>
     <strong>Description:</strong>
     <%= post.body %>
   </p>
@@ -13,4 +17,8 @@
     <%= post.rating %>
   </p>
 
+  <p>
+    <strong>Total Rating Average:</strong> nil ||
+    <strong>BGG Rating:</strong> nil
+  </p>
 </div>
