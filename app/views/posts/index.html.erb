@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+<%= link_to "New post", new_post_path %>
+
+<div class="container">
+  <h1>All Board Games Ranked</h1>
+  </br></br>
+  
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <p>
+        <%= link_to "Show this post", post %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+

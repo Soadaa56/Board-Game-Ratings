@@ -10,7 +10,7 @@
           <%= link_to 'Home', root_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Board Games</a>
+          <%= link_to 'Board Games', posts_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Top Rated</a>
@@ -19,7 +19,7 @@
           <a class="nav-link disabled" aria-disabled="true">Personal Favorite</a>
         </li>
         <li class="nav-item">
-          <%= link_to 'About', about_path, class: 'nav-link active' %>
+          <%= link_to 'About', about_path, class: 'nav-link' %>
         </li>
       </ul>
     </div>
