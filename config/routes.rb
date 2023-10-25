@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   root "pages#home"
   
-  devise_for :users
+  get 'search', to:"search#index"
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  get '/u/:id', to: 'users#profile', as: 'user'
+  get 'users/profile'
+  
   resources :posts
-
+  
   get 'about', to: 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Home</h1>
-  <p>Welcome!</p>
+  <% if current_user %>
+    <p>Welcome, <%= current_user.name %>!</p>
+  <% else %>
+    <p>Welcome!</p>
+  <% end %>
   <p>Come look at our ratings of our favorite board games!</p>
 </div>
