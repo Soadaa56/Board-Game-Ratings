@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root "pages#home"
   
+  resources :pins
+  
   get 'search', to:"search#index"
-
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
