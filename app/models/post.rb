@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   validates :rating, numericality: { only_integer: true, allow_nil: true, in: 1..10 }
   belongs_to :user
 
+  # has_rich_text :body
+
   def self.ransackable_attributes(auth_object = nil)
     ["title", "user", "body", "rating", "bgg_ratings"]
   end
