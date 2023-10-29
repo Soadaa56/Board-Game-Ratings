@@ -4,21 +4,30 @@
   </p>
 
   <p>
-    <strong>Posted by:</strong> <%= post.user.name.capitalize %>
+    <strong>Posted by: </strong>
+    <%= post.user.name.capitalize %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Description: </strong>
     <%= post.body %>
   </p>
 
   <p>
-    <strong>Ratings:</strong>
-    <%= post.rating %>
+    <strong>Your Rating:</strong>
+    <% if current_user.name == "Soadaa" %>
+      <%= post.rating_kev %>
+    <% elsif current_user.name == 'Ach'%>
+      <% post.rating_ach %>
+    <% end %>
   </p>
 
   <p>
-    <strong>Total Rating Average:</strong> nil ||
-    <strong>BGG Rating:</strong> nil
+    <strong>Total Rating Average:</strong>
+  </p>
+
+  <p>
+    <strong>BGG Rating:</strong>
+    <%= post.bgg_rating %>
   </p>
 </div>

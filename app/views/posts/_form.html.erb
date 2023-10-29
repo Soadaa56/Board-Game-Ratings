@@ -17,16 +17,30 @@
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
+    <%= form.label :description, style: "display: block" %>
     <%= form.text_area :body %>
   </div>
 
   <div>
     <%= form.label :rating, style: "display: block" %>
-    <%= form.number_field :rating %>
+    <% if current_user.name == 'Soadaa' %>
+      <%= form.number_field :rating_kev %>
+    <% elsif current_user.name == ''%>
+      <%= form.number_field :rating_ach %>
+    <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :bgg_rating, style: "display: block" %>
+    <%= form.number_field :bgg_rating, step:0.1 %>
   </div>
+
+  <br/>
+
+  <%= form.submit %>
+  
+  <br/><br/>
+  </div>
+  <br/>
+  <%= post.inspect %>
 <% end %>
