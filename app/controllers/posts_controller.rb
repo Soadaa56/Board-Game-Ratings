@@ -8,8 +8,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1 or /posts/1.json
-  def show
-  end
+  def show ;end
 
   # GET /posts/new
   def new

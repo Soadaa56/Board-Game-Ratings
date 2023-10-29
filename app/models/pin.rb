@@ -2,6 +2,7 @@ class Pin < ApplicationRecord
   has_one_attached :image
   has_many_attached :pictures
   has_rich_text :body
+  belongs_to :post
 
   def image_as_thumbnail
     return unless image.content_type.in?(%w[image/jpeg image/png])

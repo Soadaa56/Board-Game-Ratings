@@ -1,8 +1,18 @@
 <div class="container">
   <h1>Editing post</h1>
   
-  <%= render "form", post: @post %>
-  <%= render 'pins/form', pin: @post %>
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col">
+        <%= render "form", post: @post %>
+      </div>
+    
+      <div class="col">
+        <%= render 'pins/form', pin: @post %>
+      </div>
+    </div>
+  </div>
+
   <br>
   
   <div>

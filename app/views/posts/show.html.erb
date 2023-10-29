@@ -4,9 +4,10 @@
   <%= render @post %>
   
   <div>
-    <%= link_to "Edit this post", edit_post_path(@post) %> |
-    <%= link_to "Back to posts", posts_path %>
-    </br></br></br>
-    <%= button_to "Destroy this post", @post, method: :delete %>
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-secondary" %> 
+    <br/><br/><br/>
+    <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-outline-danger" %>
+    <br/><br/><br/>
+    <%= button_to "Back", :back, class: "btn btn-outline-primary" %>
   </div>
 </div>
