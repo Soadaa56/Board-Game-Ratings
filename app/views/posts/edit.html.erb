@@ -1,22 +1,18 @@
 <div class="container">
   <h1>Editing post</h1>
-  
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col">
-        <%= render "form", post: @post %>
-      </div>
-    
-      <div class="col">
-        <%= render 'pins/form', pin: @post %>
-      </div>
-    </div>
-  </div>
 
-  <br>
+  <div class="container">
+    <%= render "form", post: @post %>
+    <%#= render "pins/form", pin: @post %>
+    <%= link_to "Add Picture", new_post_pin_path(@post.id) %>
   
+    <%#= @post.pins %>
+  </div>
+  <br /><br /><br />
   <div>
     <%= link_to "Show this post", @post %> |
     <%= link_to "Back to posts", posts_path %>
   </div>
 </div>
+
+<%= console %>

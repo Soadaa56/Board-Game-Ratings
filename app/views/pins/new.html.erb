@@ -1,9 +1,12 @@
 <h1>New pin</h1>
 
 <%= render "form", pin: @pin %>
-
+<%#= render @pin %>
 <br>
 
 <div>
-  <%= link_to "Back to pins", pins_path %>
+  <%= link_to "Back", :back %>
 </div>
+
+
+<%= console %>

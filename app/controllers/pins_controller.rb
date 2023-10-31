@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  
   # GET /pins or /pins.json
   def index
     @pins = Pin.all
@@ -12,7 +13,7 @@ class PinsController < ApplicationController
 
   # GET /pins/new
   def new
-    @pin = Pin.new
+    # @pin = Pin.new
   end
 
   # GET /pins/1/edit
@@ -38,7 +39,7 @@ class PinsController < ApplicationController
   def update
     respond_to do |format|
       if @pin.update(pin_params)
-        format.html { redirect_to pin_url(@pin), notice: "Pin was successfully updated." }
+        format.html { redirect_to pin_url(@pin), notice: "Pin was successfully updated" }
         format.json { render :show, status: :ok, location: @pin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,6 +62,10 @@ class PinsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
       @pin = Pin.find(params[:id])
+    end
+
+    def set_post
+      @post = Post.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
