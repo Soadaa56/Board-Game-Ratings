@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: %i[ show edit update destroy ]
+  before_action :set_pin, only: %i[ show update destroy ]
   before_action :authenticate_user!
+  before_action :set_post
   
   # GET /pins or /pins.json
   def index
@@ -13,7 +14,8 @@ class PinsController < ApplicationController
 
   # GET /pins/new
   def new
-    # @pin = Pin.new
+    @pin = Pin.new
+    @pin.post_id = params[:post_id]
   end
 
   # GET /pins/1/edit
@@ -65,7 +67,7 @@ class PinsController < ApplicationController
     end
 
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find(params[:post_id])
     end
 
     # Only allow a list of trusted parameters through.
