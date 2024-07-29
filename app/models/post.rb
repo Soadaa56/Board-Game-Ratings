@@ -6,6 +6,6 @@ class Post < ApplicationRecord
   # has_rich_text :body
 
   def self.ransackable_attributes(auth_object = nil)
-    ["title", "user", "body", "rating", "bgg_ratings"]
+    ["title", "user", "body", "bgg_ratings"]
   end
 end
