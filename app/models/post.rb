@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: {minimum: 2, maximum: 80}
   belongs_to :user
   has_many :pins
+  has_many :ratings
 
   # has_rich_text :body
 
