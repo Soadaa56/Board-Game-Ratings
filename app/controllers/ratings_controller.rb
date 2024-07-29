@@ -7,11 +7,20 @@ class RatingsController < ApplicationController
     @rating.user = current_user
 
     if @rating.save
-      format.html { redirect_to post_url(@post), notice: "Rating was added" }
+      format.html { redirect_to post_url(@post), notice: "Rating was added." }
       format.json { render :show, status: :created, location: @post }
     else
       format.html { render :new, status: :unprocessable_entity }
       format.json { render json: @post.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def update
+    @rating = Rating.find(params[:id])
+    if @rating.update(rating_params)
+      redirect_to @rating.post, notice: "Rating was successfully updated."
+    else
+      render :edit, notice: "Rating was not updated."
     end
   end
 
