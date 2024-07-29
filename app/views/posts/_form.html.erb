@@ -22,15 +22,6 @@
   </div>
 
   <div>
-    <%= form.label :rating, style: "display: block" %>
-    <% if current_user.name == 'Soadaa' %>
-      <%= form.number_field :rating_kev %>
-    <% elsif current_user.name == ''%>
-      <%= form.number_field :rating_ach %>
-    <% end %>
-  </div>
-
-  <div>
     <%= form.label :bgg_rating, style: "display: block" %>
     <%= form.number_field :bgg_rating, step:0.1 %>
   </div>

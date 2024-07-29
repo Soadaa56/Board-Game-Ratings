@@ -13,20 +13,14 @@
   </p>
 
   <p>
-    <strong>Your Rating:</strong>
-    <% if current_user.name == "Soadaa" %>
-      <%= post.rating_kev %>
-    <% elsif current_user.name == 'Ach'%>
-      <% post.rating_ach %>
-    <% end %>
+    <strong>User Average Score:</strong>
   </p>
 
   <p>
-    <strong>Total Rating Average:</strong>
+    <strong>Admin average Score:</strong>
   </p>
 
   <p>
     <strong>BGG Rating:</strong>
-    <%= post.bgg_rating %>
   </p>
 </div>
