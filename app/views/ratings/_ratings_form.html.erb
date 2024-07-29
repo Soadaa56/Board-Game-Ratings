@@ -1,5 +1,5 @@
 <div>
-  <strong><%= f.label :score, "Rate This Game: ", class: "me-3" %></strong>
+  <strong><%= f.label :score, "Rate This Game:", class: "me-3" %></strong>
   <% (1..10).each do |i| %>
     <div class="form-check form-check-inline">
       <div class="form-check-input">
@@ -11,5 +11,3 @@
     </div>
   <% end %>
 </div>
-<br>
-<%= f.submit "Submit Rating", class: "btn btn-outline-success" %>

@@ -1,0 +1,5 @@
+<%= form_with(model: [@post, @post.ratings.find_by(user: current_user)], url: post_rating_path(@post, @post.ratings.find_by(user: current_user)), method: :patch, local: true) do |f| %>
+  <%= render "ratings/ratings_form", f: f %>
+  <br>
+  <%= f.submit "Update Rating", class: "btn btn-outline-success" %>
+<% end %>

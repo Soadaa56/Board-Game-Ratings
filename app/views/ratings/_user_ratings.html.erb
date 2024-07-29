@@ -2,13 +2,14 @@
   <%# User signed in and rated the game %>
   <% if @post.ratings.exists?(user: current_user) %>
     <p><Strong>Your Rating: </Strong><%= @post.ratings.find_by(user: current_user).score %></p>
-
+    <%= render "ratings/edit_user_ratings", post: @post %>
   <%# User signed in and hasn't rated the game %>
   <% else %>
     <p><Strong>Your Rating: ?</Strong></p>
       <%= form_with(model: [@post, Rating.new], url: post_ratings_path(@post), local: true) do |f| %>
-    <div>
       <%= render "ratings/ratings_form", f: f %>
+      <br>
+      <%= f.submit "Submit Rating", class: "btn btn-outline-success" %>
     <% end %>
   <% end %>
 <%# User not signed in %>
