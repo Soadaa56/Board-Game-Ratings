@@ -2,12 +2,48 @@
 
 <div class="container">
   <%= render @post %>
+
+  <% if user_signed_in? %>
+    <%# User signed in and rated the game %>
+    <% if @post.ratings.exists?(user: current_user) %>
+      <p><Strong>Your Rating: </Strong><%= @post.ratings.find_by(user: current_user).score %></p>
+    <% else %>
+    <%# User signed in and hasn't rated the game %>
+      <p><Strong>Your Rating: ?</Strong></p>
+        <%= form_with(model: [@post, Rating.new], url: post_ratings_path(@post), local: true) do |f| %>
+      <div>
+        <strong><%= f.label :score, "Rate This Game: ", class: "me-3" %></strong>
+        <% (1..10).each do |i| %>
+          <div class="form-check form-check-inline">
+            <div class="form-check-input"><%= f.radio_button :score, i, id: "rating #{i}" %></div>
+            <div class="form-check-label"><%= f.label "Rate #{i}", i %></div>
+          </div>
+        <% end %>
+      </div>
+      <br>
+      <%= f.submit "Submit Rating", class: "btn btn-outline-success" %>
+      <% end %>
+    <% end %>
+  <% else %>
+  <%# User not signed in %>
+    <div>
+      <p><Strong>Your Rating: </Strong>  <%= link_to "Sign In To Rate!", new_user_session_path, class:"btn btn-primary" %></p>
+      <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-secondary" %>
+    </div>
+  <% end %>
   
+  <br><br>
+  <% if current_user.admin? %>
+    <div>
+      <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-secondary" %>
+      <br/><br/><br/>
+      <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-outline-danger" %>
+      <br/><br/>
+    </div>
+  <% end %>
   <div>
-    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-secondary" %> 
-    <br/><br/><br/>
-    <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-outline-danger" %>
-    <br/><br/><br/>
     <%= button_to "Back", :back, class: "btn btn-outline-primary" %>
   </div>
 </div>
+
+<% console %>
