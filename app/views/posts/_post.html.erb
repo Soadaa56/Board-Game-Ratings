@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
   <p class="fs-1" style="text-decoration: underline">
-    <strong><%= post.title.capitalize %></strong>
+    <strong><%= link_to "#{post.title.capitalize}", post_path(post) %></strong>
   </p>
   <p>
     <strong>Posted by: </strong>
