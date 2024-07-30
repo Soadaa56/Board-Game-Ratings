@@ -11,8 +11,14 @@ class Post < ApplicationRecord
   end
 
   def average_admin_score
-    admin_ratings = ratings.joins(:user).where(users: { admin: true })
+    admin_ratings = ratings.joins(:user).where(users: { role: "admin" })
     return nil if admin_ratings.empty?
     admin_ratings.average(:score)
+  end
+
+  def average_user_score
+    user_ratings = ratings.joins(:user).where(users: { role: "user" })
+    return nil if user_ratings.empty?
+    user_ratings.average(:score)
   end
 end

@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container">
+  <div>
+    <%= button_to "Back", :back, class: "btn btn-outline-primary" %>
+  </div>
   <%= render @post %>
 
   <%= render "ratings/user_ratings" %>

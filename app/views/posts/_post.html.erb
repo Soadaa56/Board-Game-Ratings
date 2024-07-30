@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
-  <p>
-    <%= link_to (post.title.capitalize), post_path(post.id) %>
+  <p class="fs-1" style="text-decoration: underline">
+    <strong><%= post.title.capitalize %></strong>
   </p>
   <p>
     <strong>Posted by: </strong>
@@ -13,11 +13,17 @@
   </p>
 
   <p>
-    <strong>User Average Rating:</strong>
+    <strong>
+      <% if post.average_user_score == nil %>
+        User Average Rating: ?
+      <% else %>
+        User Average Rating: <%= post.average_user_score %>
+      <% end %>
+    </strong>
   </p>
 
   <p>
-    <strong>Admin average Rating:</strong>
+    <strong>Admin average Rating: <%= post.average_admin_score %></strong>
   </p>
 
   <p>
