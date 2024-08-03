@@ -76,3 +76,5 @@ end
 gem "ransack", "~> 4.1"
 
 gem "faraday", "~> 2.10"
+
+gem "nokogiri", "~> 1.15"
