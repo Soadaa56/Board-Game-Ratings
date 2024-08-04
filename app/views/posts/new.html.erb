@@ -3,11 +3,19 @@
     <%= link_to "Back to posts", posts_path %>
   </div>
 
-  <% if current_user.admin? %>
-    <h1>New post</h1>
-    
-    <%= render "form", post: @post %>
-  <% else %>
-    <p>You seem to be lost!</p>
-  <% end %>
+  <%# if current_user.admin? %>
+    <h1>Add Board Game</h1>
+    <div class="row align-items-start">
+      <div class="col">
+        <%= render "form", post: @post %>
+      </div>
+      <div class="col">
+        <p>
+          Search Bar
+        </p>
+      </div>
+    </div>
+  <%# else %>
+    <%# <p>You seem to be lost!</p> %>
+  <%# end %>
 </div>
