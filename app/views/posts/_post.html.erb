@@ -14,13 +14,11 @@
   </p>
 
   <p>
-    <strong>
       <% if post.average_user_score == nil %>
-        User Average Rating: ?
+        <strong>User Average Rating: </strong>?
       <% else %>
-        User Average Rating: <%= post.average_user_score %>
+        <strong>User Average Rating: </strong><%= post.average_user_score %>
       <% end %>
-    </strong>
   </p>
 
   <p>
@@ -32,6 +30,10 @@
   </p>
 
   <p>
-    <strong>BGG Rating: </strong>?
+    <% if post.bgg_rating == nil%>
+      <strong>BGG Rating: </strong>?
+    <% else %>
+      <strong>Bgg Rating: </strong><%= post.bgg_rating %>
+    <% end %>
   </p>
 </div>

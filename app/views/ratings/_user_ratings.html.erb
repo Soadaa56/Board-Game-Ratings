@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
   <%# User signed in and rated the game %>
   <% if @post.ratings.exists?(user: current_user) %>
-    <p><Strong>Your Rating: <%= @post.ratings.find_by(user: current_user).score %></Strong></p>
+    <p>
+      <Strong>Your Rating: </strong><%= @post.ratings.find_by(user: current_user).score %>
+    </p>
     <%= render "ratings/edit_user_ratings", post: @post %>
   <%# User signed in and hasn't rated the game %>
   <% else %>
