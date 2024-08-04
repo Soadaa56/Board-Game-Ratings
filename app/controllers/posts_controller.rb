@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[show index]
 
+  require Rails.root.join('lib', 'bgg_data_fetcher')
+
   # GET /posts or /posts.json
   def index
     @posts = Post.all.order(:title)
@@ -25,9 +27,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    # @post.ratings.first.user_id = current_user
+    # Weird to iterate over each rating, but there will only be one at creation so no issuie of overiding data
     @post.ratings.each do |rating|
       rating.user = current_user
+    end
+
+    if @post.bgg_id.present?
+      fetcher = BggDataFetcher.new(@post.bgg_id)
+      @post.bgg_rating = fetcher.fetch_board_game_rating
     end
 
     respond_to do |format|
@@ -43,6 +50,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
@@ -72,6 +81,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :bgg_id, :image_pin, ratings_attributes: [:score])
+      params.require(:post).permit(:title, :body, :bgg_id, :image_pin, ratings_attributes: [:id, :score])
     end
 end
