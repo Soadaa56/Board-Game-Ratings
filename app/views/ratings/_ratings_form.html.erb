@@ -2,6 +2,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <strong><%= f.label :score, "Rate This Game:", class: "me-3" %></strong>
+  <br>
   <% (1..10).each do |i| %>
     <div class="form-check form-check-inline">
       <div class="form-check-input">
