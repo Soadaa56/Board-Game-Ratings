@@ -12,8 +12,8 @@ class BggDataFetcher
     conn = Faraday.get("#{BASE_URL}#{@game_id}?stats=1")
 
     if conn.status == 200
-      doc = Nokgogiri::XML(conn.body)
-      game_average_rating = doc.at_xpath("//average").to_f.
+      doc = Nokogiri::XML(conn.body)
+      game_average_rating = doc.at_xpath("//average").text.to_f
 
       game_average_rating ? game_average_rating.round(1) : nil
     else
