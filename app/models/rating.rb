@@ -1,4 +1,6 @@
 class Rating < ApplicationRecord
   belongs_to :user
   belongs_to :post
+
+  validates :score, prescence: true
 end
