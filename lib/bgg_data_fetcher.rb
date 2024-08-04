@@ -17,7 +17,24 @@ class BggDataFetcher
 
       game_average_rating ? game_average_rating.round(1) : nil
     else
-      puts "Connection failed: #{conn.status}"
+      puts "Connection failed for game id: #{conn.status}"
+      nil
+    end
+  end
+
+  def fetch_board_game_search
+    conn = Faraday.get("#{BASE_URL}search?search=#{game_name}")
+
+    if conn.status == 200
+      doc = Nokogiri::XML(conn.body)
+
+      doc.xpath("//boardgame").each do |game|
+        game_id = game.attr("objectid")
+        name = game.xpath("name").text
+        year = game.xpath("yearpublished").text
+      end
+    else
+      puts "Connection failed for search: #{conn.status}"
       nil
     end
   end
