@@ -3,7 +3,11 @@
     <%= link_to "Back to posts", posts_path %>
   </div>
 
-  <h1>New post</h1>
-  
-  <%= render "form", post: @post %>
+  <% if current_user.admin? %>
+    <h1>New post</h1>
+    
+    <%= render "form", post: @post %>
+  <% else %>
+    <p>You seem to be lost!</p>
+  <% end %>
 </div>

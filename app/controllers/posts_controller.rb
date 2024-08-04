@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.ratings.build
   end
 
   # GET /posts/1/edit
@@ -24,6 +25,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    # @post.ratings.first.user_id = current_user
+    @post.ratings.each do |rating|
+      rating.user = current_user
+    end
 
     respond_to do |format|
       if @post.save
@@ -67,6 +72,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :bgg_rating, :image_pin)
+      params.require(:post).permit(:title, :body, :bgg_id, :image_pin, ratings_attributes: [:score])
     end
 end

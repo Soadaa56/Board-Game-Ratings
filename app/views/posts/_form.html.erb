@@ -12,25 +12,30 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <strong><%= form.label :title, style: "display: block" %></strong>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <strong><%= form.label :description, style: "display: block" %></strong>
     <%= form.text_area :body %>
   </div>
 
   <div>
-    <%= form.label :bgg_id, style: "display: block" %>
+    <strong><%= form.label :bgg_id, "Board Game Geeks ID#", style: "display: block" %></strong>
     <%= form.number_field :bgg_id %>
+    
+  </div>
+
+  <div>
+    <%= form.fields_for :ratings do |rating_form| %>
+      <%= render 'ratings/ratings_form', f: rating_form %>
+    <% end %>
   </div>
 
   <br/>
 
   <%= form.submit %>
-  
-  <br/><br/>
-  </div>
-  <br/>
 <% end %>
+
+<% console %>

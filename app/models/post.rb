@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :pins
   has_many :ratings
+  accepts_nested_attributes_for :ratings
 
   # has_rich_text :body
 
