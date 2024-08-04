@@ -2,14 +2,14 @@ require 'faraday'
 require 'nokogiri'
 
 class BggDataFetcher
-  BASE_URL = 'https://api.geekdo.com/xmlapi/boardgame/'.freeze
+  BASE_URL = 'https://api.geekdo.com/xmlapi/'.freeze
 
   def initialize(game_id)
     @game_id = game_id
   end
 
   def fetch_board_game_rating
-    conn = Faraday.get("#{BASE_URL}#{@game_id}?stats=1")
+    conn = Faraday.get("#{BASE_URL}boardgame/#{@game_id}?stats=1")
 
     if conn.status == 200
       doc = Nokogiri::XML(conn.body)
