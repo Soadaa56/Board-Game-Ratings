@@ -4,12 +4,8 @@ require 'nokogiri'
 class BggDataFetcher
   BASE_URL = 'https://api.geekdo.com/xmlapi/'.freeze
 
-  def initialize(game_id)
-    @game_id = game_id
-  end
-
-  def fetch_board_game_rating
-    conn = Faraday.get("#{BASE_URL}boardgame/#{@game_id}?stats=1")
+  def fetch_board_game_rating(game_id)
+    conn = Faraday.get("#{BASE_URL}boardgame/#{game_id}?stats=1")
 
     if conn.status == 200
       doc = Nokogiri::XML(conn.body)
@@ -32,6 +28,9 @@ class BggDataFetcher
         game_id = game.attr("objectid")
         name = game.xpath("name").text
         year = game.xpath("yearpublished").text
+
+        # temporary
+        puts "Game ID: #{game_id}, Name: #{name}, Year Published: #{year}"
       end
     else
       puts "Connection failed for search: #{conn.status}"

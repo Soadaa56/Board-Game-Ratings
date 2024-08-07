@@ -33,8 +33,8 @@ class PostsController < ApplicationController
     end
 
     if @post.bgg_id.present?
-      fetcher = BggDataFetcher.new(@post.bgg_id)
-      @post.bgg_rating = fetcher.fetch_board_game_rating
+      fetcher = BggDataFetcher.new
+      @post.bgg_rating = fetcher.fetch_board_game_rating(@post.bgg_id)
     end
 
     respond_to do |format|
