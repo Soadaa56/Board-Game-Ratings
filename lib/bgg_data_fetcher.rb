@@ -29,9 +29,10 @@ class BggDataFetcher
         name = game.xpath("name").text
         year = game.xpath("yearpublished").text
 
-        # temporary
-        puts "Game ID: #{game_id}, Name: #{name}, Year Published: #{year}"
+        results << {game_id: game_id, name: name, year: year}
       end
+
+      results
     else
       puts "Connection failed for search: #{conn.status}"
       nil
