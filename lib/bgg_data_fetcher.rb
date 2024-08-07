@@ -18,7 +18,7 @@ class BggDataFetcher
     end
   end
 
-  def fetch_board_game_search
+  def fetch_board_game_search(game_name)
     conn = Faraday.get("#{BASE_URL}search?search=#{game_name}")
 
     if conn.status == 200
