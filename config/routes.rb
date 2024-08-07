@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :pins
     resources :ratings, only: [:create, :update]
+
+    collection do
+      get 'fetch_board_games'
+    end
   end
-  # resources :pins
 
   get 'about', to: 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

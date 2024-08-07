@@ -73,6 +73,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def fetch_board_games
+    if params[:query].present?
+      @results = BggDataFetcher.new.fetch_board_game_search(params[:query])
+    else
+      @results = []
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

@@ -20,6 +20,7 @@ class BggDataFetcher
 
   def fetch_board_game_search(game_name)
     conn = Faraday.get("#{BASE_URL}search?search=#{game_name}")
+    results = []
 
     if conn.status == 200
       doc = Nokogiri::XML(conn.body)
