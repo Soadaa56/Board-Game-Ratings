@@ -76,12 +76,14 @@ class PostsController < ApplicationController
   def fetch_board_games
     if params[:query].present?
       @results = BggDataFetcher.new.fetch_board_game_search(params[:query])
+      Rails.logger.info "Fetched results: #{@results.inspect}"
     else
       @results = []
     end
 
     respond_to do |format|
-      format.js
+      format.js {render "posts/fetch_board_games"}
+      format.json {render json: @results }
     end
   end
 

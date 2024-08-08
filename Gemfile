@@ -73,8 +73,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# custom
 gem "ransack", "~> 4.1"
 
 gem "faraday", "~> 2.10"
 
 gem "nokogiri", "~> 1.15"
+
+gem 'jquery-rails'

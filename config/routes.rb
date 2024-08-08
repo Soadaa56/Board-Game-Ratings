@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :ratings, only: [:create, :update]
 
     collection do
-      get 'fetch_board_games'
+      get 'fetch_board_games', defaults: { format: 'js' }
     end
   end
 
