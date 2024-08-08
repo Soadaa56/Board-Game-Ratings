@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[show index]
-  skip_before_action :verify_authenticity_token, only: :fetch_board_games
+  # skip_before_action :verify_authenticity_token, only: :fetch_board_games
 
   require Rails.root.join('lib', 'bgg_data_fetcher')
 
