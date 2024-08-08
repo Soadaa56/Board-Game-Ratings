@@ -83,8 +83,10 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.js
-      format.json {render json: @results }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("query_results:"), partial: "posts/fetch_results", locals: { results: @results}
+      end
+      format.html {redirect_to new_post_path}
     end
   end
 
