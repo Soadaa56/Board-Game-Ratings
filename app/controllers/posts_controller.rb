@@ -51,6 +51,11 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    if @post.bgg_id.present?
+      fetcher = BggDataFetcher.new
+      @post.bgg_rating = fetcher.fetch_board_game_rating(@post.bgg_id)
+    end
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
@@ -80,12 +85,14 @@ class PostsController < ApplicationController
       @results = []
     end
 
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace("query_results"), partial: "posts/fetch_results", locals: { results: @results}
-      end
-      format.html {redirect_to new_post_path}
-    end
+    render partial: "posts/fetch_results", locals: { results: @results }
+
+    # respond_to do |format|
+    #   format.turbo_stream do
+    #     render turbo_stream: turbo_stream.replace("query_results"), partial: "posts/fetch_results", locals: { results: @results}
+    #   end
+    #   format.html {redirect_to new_post_path}
+    # end
   end
 
   private

@@ -1,0 +1,12 @@
+.modal {
+  /* Center and overlap on screen */
+  position: fixed;
+  z-index: 1;
+  padding: 1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  overflow: auto;
+  background-color: grey;
+  border-radius: 5px;
+}

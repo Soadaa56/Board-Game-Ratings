@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to post.title, post %></td>
         <td><%= post.body.truncate_words(25) %></td>
-        <td><%= post.rating %></td>
+        <td><%= post.ratings.average(:score) %></td>
         <td><%= post.bgg_rating %></td>
       </tr>
       <% end %>
