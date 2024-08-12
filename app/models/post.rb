@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :title, presence: true, length: {minimum: 2, maximum: 80}
+  validates :title, presence: true, length: { maximum: 80 }
   validates :bgg_id, presence: true, numericality: { only_integer: true }, allow_nil: true
   belongs_to :user
   has_many :pins
