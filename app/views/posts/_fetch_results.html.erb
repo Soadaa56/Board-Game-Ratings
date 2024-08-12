@@ -3,7 +3,12 @@
     <% @results.each do |result| %>
         <div class="game-item" data-game-id="<%= result[:game_id] %>" data-game-name="<%= result[:name] %>" %>
           <h6><%= result[:name] %> (<%= result[:year] %>)</h6>
-          <p>ID: <%= result[:game_id] %></p>
+          <div class="row align-items-start">
+            <div class="col">
+              <p>ID: <%= result[:game_id] %></p>
+            </div>
+            <div class="col"><%= button_to "Select Game", class: "btn btn-primary" %></div>
+          </div>
         </div>
       <% end %>
   <% elsif @results.nil? %>
