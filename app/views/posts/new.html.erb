@@ -12,12 +12,13 @@
 
       <div class="col">
         <div>
-          <%= form_with url: fetch_board_games_posts_path, method: :get, data: { turbo_frame: "query_results" }, id: "fetch_bgg_games" do %>
+          <%= form_with url: fetch_board_games_posts_path, method: :get, local: true, id: "fetch_bgg_games" do %>
             <%= text_field_tag :query, nil, placeholder: "Search for board game" %>
             <%= submit_tag "Search"%>
           <% end %>
         </div>
-        <%= turbo_frame_tag "query_results" %>
+        <br>
+        <%= render "posts/fetch_results" %>
       </div>
     </div>
   <% else %>

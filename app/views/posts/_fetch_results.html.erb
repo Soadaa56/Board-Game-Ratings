@@ -1,11 +1,13 @@
 <div>
-  <% if results.present? %>
-    <% results.each do |result| %>
+  <% if @results.present? %>
+    <% @results.each do |result| %>
         <div class="game">
           <h6><%= result[:name] %> (<%= result[:year] %>)</h6>
           <p>ID: <%= result[:game_id] %></p>
         </div>
       <% end %>
+  <% elsif @results.nil? %>
+
   <% else %>
     <p>No results found.</p>
   <% end %>
