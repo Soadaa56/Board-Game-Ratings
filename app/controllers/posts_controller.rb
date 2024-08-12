@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    # Weird to iterate over each rating, but there will only be one at creation so no issuie of overiding data
+    # Weird to iterate over each rating, but there will only be one at creation so no issue of overiding data
     @post.ratings.each do |rating|
       rating.user = current_user
     end
@@ -80,19 +80,18 @@ class PostsController < ApplicationController
   def fetch_board_games
     if params[:query].present?
       @results = BggDataFetcher.new.fetch_board_game_search(params[:query])
-      Rails.logger.info "Fetched results: #{@results.inspect}"
     else
       @results = []
     end
 
-    render partial: "posts/fetch_results", locals: { results: @results }
+    # render partial: "posts/fetch_results", locals: { results: @results }
 
-    # respond_to do |format|
-    #   format.turbo_stream do
-    #     render turbo_stream: turbo_stream.replace("query_results"), partial: "posts/fetch_results", locals: { results: @results}
-    #   end
-    #   format.html {redirect_to new_post_path}
-    # end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("query_results"), partial: "posts/fetch_results", locals: { results: @results }
+      end
+      format.html { redirect_to new_post_path }
+    end
   end
 
   private

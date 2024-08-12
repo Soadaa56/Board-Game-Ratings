@@ -1,10 +1,12 @@
-<% if results.empty? %>
-  <p>No results found.</p>
-<% else %>
-  <% results.each do |result| %>
-    <div class="game">
-      <h6><%= result[:name] %> (<%= result[:year] %>)</h6>
-      <p>ID: <%= result[:game_id] %></p>
-    </div>
+<div>
+  <% if results.present? %>
+    <% results.each do |result| %>
+        <div class="game">
+          <h6><%= result[:name] %> (<%= result[:year] %>)</h6>
+          <p>ID: <%= result[:game_id] %></p>
+        </div>
+      <% end %>
+  <% else %>
+    <p>No results found.</p>
   <% end %>
-<% end %>
+</div>
