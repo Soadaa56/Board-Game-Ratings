@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :ratings, only: [:create, :update]
 
     collection do
-      get 'fetch_board_games', defaults: { format: 'turbo_stream' }
+      get 'fetch_board_games'
     end
   end
 

@@ -78,20 +78,23 @@ class PostsController < ApplicationController
   end
 
   def fetch_board_games
+    @post = Post.new
     if params[:query].present?
       @results = BggDataFetcher.new.fetch_board_game_search(params[:query])
     else
       @results = []
     end
 
+    render :new
+
     # render partial: "posts/fetch_results", locals: { results: @results }
 
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.update("query_results"), partial: "posts/fetch_results", locals: { results: @results }
-      end
-      format.html { redirect_to new_post_path }
-    end
+    # respond_to do |format|
+    #   format.turbo_stream do
+    #     render turbo_stream: turbo_stream.update("query_results"), partial: "posts/fetch_results", locals: { results: @results }
+    #   end
+    #   format.html { redirect_to new_post_path }
+    # end
   end
 
   private

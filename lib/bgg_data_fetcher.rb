@@ -39,4 +39,18 @@ class BggDataFetcher
       nil
     end
   end
+
+  def fetch_board_game_image(game_id)
+    conn = Faraday.get("#{BASE_URL}boardgame/#{game_id}?stats=1")
+
+    if conn.status == 200
+      doc = Nokogiri::XML(conn.body)
+      game_image = doc.xpath("//image")
+
+      game_image ? game_image.text : nil
+    else
+      puts "Connection failed for thumbnail: #{conn.status}"
+      nil
+    end
+  end
 end
