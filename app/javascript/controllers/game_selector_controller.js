@@ -2,13 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="game-selector"
 export default class extends Controller {
-  connect() {
-    console.log("game_selector connected");
-  }
+  connect() { }
 
   select(event) {
     event.preventDefault();
-
+    console.log("hi")
     console.log(event);
   }
 }
