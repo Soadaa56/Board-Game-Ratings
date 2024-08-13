@@ -2,12 +2,18 @@
   <% if @results.present? %>
     <% @results.each do |result| %>
         <div class="game-item" data-game-id="<%= result[:game_id] %>" data-game-name="<%= result[:name] %>" %>
+          
           <h6><%= result[:name] %> (<%= result[:year] %>)</h6>
+          
           <div class="row align-items-start">
             <div class="col">
               <p>ID: <%= result[:game_id] %></p>
             </div>
-            <div class="col"><%= button_to "Select Game", class: "btn btn-primary" %></div>
+            
+            <div class="col" data-controller="game-selector" >
+              <%= button_to "Select", "#", class: "btn btn-primary" %>
+            </div>
+
           </div>
         </div>
       <% end %>
