@@ -6,7 +6,7 @@
   <% if current_user %>
     <h1>Add Board Game</h1>
     <div class="row align-items-start">
-      <div class="col">
+      <div class="col" id="new-game-form">
         <%= render "form", post: @post %>
       </div>
 

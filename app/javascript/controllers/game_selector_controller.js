@@ -8,12 +8,21 @@ export default class extends Controller {
   select(event) {
     event.preventDefault();
 
-    const boardGame = this.gameTarget
-    const gameName = boardGame.dataset.gameName
-    const gameId = boardGame.dataset.gameId
+    const boardGame = this.gameTarget;
+    const gameName = boardGame.dataset.gameName;
+    const gameId = boardGame.dataset.gameId;
 
+    this.fillForm(gameName, gameId);
+  }
 
-    console.log(gameName);
-    console.log(gameId);
+  fillForm(gameName, gameId) {
+    const form = document.getElementById("new-post-form").elements;
+    const formTitle = form["post_title"];
+    const formId = form["post_bgg_id"];
+
+    formTitle.value = gameName ? gameName : Null;
+    formId.value = gameId ? gameId : Null;
+    console.log(form);
   }
 }
+document.querySelector("body > main > div > div.row.align-items-start > div:nth-child(1) > form")
