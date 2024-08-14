@@ -87,6 +87,8 @@ class PostsController < ApplicationController
 
     render :new
 
+    #  Keeping these two ideas here for template if I want to attempt turbo streams again
+
     # render partial: "posts/fetch_results", locals: { results: @results }
 
     # respond_to do |format|
@@ -95,6 +97,16 @@ class PostsController < ApplicationController
     #   end
     #   format.html { redirect_to new_post_path }
     # end
+  end
+
+  def details
+    fetcher = BggDataFetcher.fetch_board_game_details(params[:id])
+
+    if fetcher
+      render json: fetcher
+    else
+      render json: { error: "Details method failed" }, status: :not_found
+    end
   end
 
   private

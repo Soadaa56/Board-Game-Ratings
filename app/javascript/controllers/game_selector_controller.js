@@ -15,14 +15,25 @@ export default class extends Controller {
     this.fillForm(gameName, gameId);
   }
 
-  fillForm(gameName, gameId) {
+  async fillForm(gameName, gameId) {
     const form = document.getElementById("new-post-form").elements;
     const formTitle = form["post_title"];
     const formId = form["post_bgg_id"];
+    const formImageUrl = form["post_image_pin"];
 
     formTitle.value = gameName ? gameName : Null;
     formId.value = gameId ? gameId : Null;
-    console.log(form);
+    
+    try {
+      // I will return json with my BggDataFetcher so I have some experience with json
+      const response = await fetch(`/posts/${gameId}/details`);
+      const data = await response.json();
+
+      formImageUrl.value = data.game_image_url;
+      console.log(data);
+      console.log(data.game_image_url);
+    } catch (error) {
+      console.error("Error getting game details", error);
+    }
   }
 }
-document.querySelector("body > main > div > div.row.align-items-start > div:nth-child(1) > form")
