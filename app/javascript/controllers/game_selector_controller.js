@@ -28,10 +28,9 @@ export default class extends Controller {
       // I will return json with my BggDataFetcher so I have some experience with json
       const response = await fetch(`/posts/${gameId}/details`);
       const data = await response.json();
+      const game_data_array = data[0]
 
-      formImageUrl.value = data.game_image_url;
-      console.log(data);
-      console.log(data.game_image_url);
+      formImageUrl.value = game_data_array.game_image_url;
     } catch (error) {
       console.error("Error getting game details", error);
     }
