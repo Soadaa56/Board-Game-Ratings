@@ -1,0 +1,111 @@
+=> 
+[[32m#<Post:0x0000761f0b8ee388[0m
+  id: [34m[1m1[0m,
+  title: [31m[1m"[0m[31mSniper Elite: The Board Game[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mAsymmetric hidden movement game 1 vs 3[0m[31m[1m"[0m,
+  created_at: Wed, 25 Oct 2023 23:32:47.551263000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 17:25:46.128876000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.8[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/gGDwoohdi6ky6Z3EZfpz3g__original/img/KGJc5bom6JEZuojfu3TqAJ7BUpM=/0x0/filters:format(jpeg)/pic6863775.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m295262[0m,
+  thumbnail:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/gGDwoohdi6ky6Z3EZfpz3g__thumb/img/Srxptd_xiygDumqiPqR0d2OdIY4=/fit-in/200x150/filters:strip_icc()/pic6863775.jpg[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8ee298[0m
+  id: [34m[1m2[0m,
+  title: [31m[1m"[0m[31mCode Names[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mTeam vs Team word game.[0m[31m[1m"[0m,
+  created_at: Wed, 25 Oct 2023 23:32:47.555541000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:49:15.432675000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.5[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/F_KDEu0GjdClml8N7c8Imw__original/img/gcX_EfjsRpB5fI4Ug4XV73G4jGI=/0x0/filters:format(jpeg)/pic2582929.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m178900[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8ee1d0[0m
+  id: [34m[1m3[0m,
+  title: [31m[1m"[0m[31mPuerto Rico[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mOne of the original worker placement games[0m[31m[1m"[0m,
+  created_at: Wed, 25 Oct 2023 23:32:47.562359000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:50:28.430937000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.9[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/QFiIRd2kimaMqTyWsX0aUg__original/img/DOgIp57F7tKZvxeITGAd3e_Q9as=/0x0/filters:format(jpeg)/pic158548.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m3076[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8ee108[0m
+  id: [34m[1m4[0m,
+  title: [31m[1m"[0m[31mSheriff of Nottingham[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mFree for all game of deception and negotiation.[0m[31m[1m"[0m,
+  created_at: Wed, 25 Oct 2023 23:32:47.567947000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:52:05.180496000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.1[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/BBgLFKUzr6tcKtlIM2JSFw__original/img/fll2MuTBPVKb7fyBJ8D-4_c1XHM=/0x0/filters:format(jpeg)/pic2075830.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m157969[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8ee040[0m
+  id: [34m[1m5[0m,
+  title: [31m[1m"[0m[31mPower Grid[0m[31m[1m"[0m,
+  body:
+   [31m[1m"[0m[31mFree for all game with bidding and cutthroat area control, similar to ticket to ride.[0m[31m[1m"[0m,
+  created_at: Wed, 25 Oct 2023 23:32:47.572323000 UTC +00:00,
+  updated_at: Wed, 14 Aug 2024 23:33:41.877851000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.8[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/yd6LuatytHRhcFCxCf-EEg__original/img/OS13C6W4i1XW__wWVVVaqF7BV0c=/0x0/filters:format(jpeg)/pic4459753.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m2651[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8edf78[0m
+  id: [34m[1m6[0m,
+  title: [31m[1m"[0m[31mRoot[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mAsymmetric Free-For-All area control war game.[0m[31m[1m"[0m,
+  created_at: Sat, 28 Oct 2023 23:11:28.570908000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:55:16.240084000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m8.1[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/JUAUWaVUzeBgzirhZNmHHw__original/img/E0s2LvtFA1L5YKk-_44D4u2VD2s=/0x0/filters:format(jpeg)/pic4254509.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m237182[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8edeb0[0m
+  id: [34m[1m8[0m,
+  title: [31m[1m"[0m[31mCatan[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31mEconomic game with resource trading and settlement building.[0m[31m[1m"[0m,
+  created_at: Sun, 04 Aug 2024 14:54:19.544875000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:56:08.457707000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.1[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/W3Bsga_uLP9kO91gZ7H8yw__original/img/xV7oisd3RQ8R-k18cdWAYthHXsA=/0x0/filters:format(jpeg)/pic2419375.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m13[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8edde8[0m
+  id: [34m[1m9[0m,
+  title: [31m[1m"[0m[31mQuarriors![0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31m'Deck' building combat game using dice instead[0m[31m[1m"[0m,
+  created_at: Sun, 04 Aug 2024 15:17:35.074595000 UTC +00:00,
+  updated_at: Thu, 15 Aug 2024 00:56:32.425077000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m6.7[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/12Bgvi0MpA10redngwI5MA__original/img/i2BO-n_bbR4Du2iV3dQtjMd0U1w=/0x0/filters:format(jpeg)/pic1604985.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m91536[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m,
+ [32m#<Post:0x0000761f0b8edd20[0m
+  id: [34m[1m11[0m,
+  title: [31m[1m"[0m[31mViticulture[0m[31m[1m"[0m,
+  body: [31m[1m"[0m[31m[1m"[0m,
+  created_at: Wed, 14 Aug 2024 21:57:24.469267000 UTC +00:00,
+  updated_at: Wed, 14 Aug 2024 21:57:24.469267000 UTC +00:00,
+  user_id: [34m[1m1[0m,
+  bgg_rating: [35m[1m7.5[0m,
+  image_pin:
+   [31m[1m"[0m[31mhttps://cf.geekdo-images.com/WrnWFA1Sysm3-nQyBe1sUA__original/img/cGg9S0AH41VxczdybvFsb81AKWw=/0x0/filters:format(jpeg)/pic2619743.jpg[0m[31m[1m"[0m,
+  bgg_id: [34m[1m128621[0m,
+  thumbnail: [36m[1mnil[0m[32m>[0m]
