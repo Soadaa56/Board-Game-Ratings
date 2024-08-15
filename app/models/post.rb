@@ -23,4 +23,12 @@ class Post < ApplicationRecord
     return nil if user_ratings.empty?
     user_ratings.average(:score)
   end
+
+  def combined_average_score
+    total_ratings = ratings.count
+    return nil if total_ratings.zero?
+
+    total_score = ratings.sum(:score)
+    total_score.to_f / total_ratings
+  end
 end
