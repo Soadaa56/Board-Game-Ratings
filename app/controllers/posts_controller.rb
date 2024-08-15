@@ -7,7 +7,25 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(:title)
+    @posts = case params[:sort_by]
+    when 'alphabetical'
+      Post.order(title: :asc)
+    when 'alphabetical_reverse'
+      Post.order(title: :desc)
+    when 'time_posted'
+      Post.order(created_at: :desc)
+    when 'time_posted_reverse'
+      Post.order(created_at: :asc)
+    when 'rating'
+      Post.all.sort_by { |post| -post.combined_average_score.to_f }
+    when 'rating_reverse'
+      Post.all.sort_by { |post| post.combined_average_score.to_f }
+
+    when 'rating_bgg'
+      Post.order(bgg_rating: :desc)
+    when 'rating_bgg_reverse'
+      Post.order(bgg_rating: :asc)
+    end
   end
 
   # GET /posts/1 or /posts/1.json
