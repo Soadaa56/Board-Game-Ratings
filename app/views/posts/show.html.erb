@@ -10,7 +10,9 @@
       <%= render "ratings/user_ratings" %>
       </div>
     <div class="col">
-      <%= image_tag @post.image_pin, size: "400x400" %>
+      <% if @post.image_pin%>
+        <%= image_tag @post.image_pin, size: "400x400" %>
+      <% end %>
       </div>
   </div>
 
