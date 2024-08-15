@@ -32,9 +32,15 @@ export default class extends Controller {
       const data = await response.json();
       const game_data_array = data[0]
 
+      // Add info to form
       formDescription.value = game_data_array.game_description;
       formImageUrl.value = game_data_array.game_image_url;
       formThumbnailUrl.value = game_data_array.game_thumbnail_url;
+
+      // Add image below form
+      const gameImage = document.getElementById("game-image");
+      gameImage.src = game_data_array.game_thumbnail_url;
+      gameImage.style.display = "block";
     } catch (error) {
       console.error("Error getting game details", error);
     }
