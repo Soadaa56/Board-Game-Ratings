@@ -25,7 +25,13 @@
     <% if post.average_admin_score == nil %>
       <strong>Admin Average Rating: </strong>?
     <% else %>
-      <strong>User Average Rating: </strong><%= post.average_admin_score %>
+      <strong>Admin Average Rating: </strong><%= post.average_admin_score %>
+    <% end %>
+  </p>
+
+  <p>
+    <% if post.average_user_score != nil && post.average_admin_score != nil %>
+      <strong>Average Site Score: </strong><%= post.combined_average_score %>
     <% end %>
   </p>
 
