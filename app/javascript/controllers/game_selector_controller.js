@@ -21,6 +21,7 @@ export default class extends Controller {
     const formDescription = form["post_body"];
     const formId = form["post_bgg_id"];
     const formImageUrl = form["post_image_pin"];
+    const formThumbnailUrl = form["post_thumbnail_url"];
 
     formTitle.value = gameName ? gameName : Null;
     formId.value = gameId ? gameId : Null;
@@ -30,11 +31,10 @@ export default class extends Controller {
       const response = await fetch(`/posts/${gameId}/details`);
       const data = await response.json();
       const game_data_array = data[0]
-      console.log(game_data_array);
-      console.log(game_data_array.game_description);
 
-      formImageUrl.value = game_data_array.game_image_url;
       formDescription.value = game_data_array.game_description;
+      formImageUrl.value = game_data_array.game_image_url;
+      formThumbnailUrl.value = game_data_array.game_thumbnail_url;
     } catch (error) {
       console.error("Error getting game details", error);
     }
