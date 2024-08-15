@@ -20,11 +20,17 @@ class PostsController < ApplicationController
       Post.all.sort_by { |post| -post.combined_average_score.to_f }
     when 'rating_reverse'
       Post.all.sort_by { |post| post.combined_average_score.to_f }
-
     when 'rating_bgg'
       Post.order(bgg_rating: :desc)
     when 'rating_bgg_reverse'
       Post.order(bgg_rating: :asc)
+    else
+      Post.order(title: :asc)
+    end
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
     end
   end
 
