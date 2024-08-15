@@ -7,26 +7,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = case params[:sort_by]
-    when 'alphabetical'
-      Post.order(title: :asc)
-    when 'alphabetical_reverse'
-      Post.order(title: :desc)
-    when 'time_posted'
-      Post.order(created_at: :desc)
-    when 'time_posted_reverse'
-      Post.order(created_at: :asc)
-    when 'rating'
-      Post.all.sort_by { |post| -post.combined_average_score.to_f }
-    when 'rating_reverse'
-      Post.all.sort_by { |post| post.combined_average_score.to_f }
-    when 'rating_bgg'
-      Post.order(bgg_rating: :desc)
-    when 'rating_bgg_reverse'
-      Post.order(bgg_rating: :asc)
-    else
-      Post.order(title: :asc)
-    end
+    @posts = sort_posts
 
     respond_to do |format|
       format.html
@@ -142,5 +123,28 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :body, :bgg_id, :image_pin, ratings_attributes: [:id, :score])
+    end
+
+    def sort_posts
+      case params[:sort_by]
+      when 'alphabetical'
+        Post.order(title: :asc)
+      when 'alphabetical_reverse'
+        Post.order(title: :desc)
+      when 'time_posted'
+        Post.order(created_at: :desc)
+      when 'time_posted_reverse'
+        Post.order(created_at: :asc)
+      when 'rating'
+        Post.all.sort_by { |post| -post.combined_average_score.to_f }
+      when 'rating_reverse'
+        Post.all.sort_by { |post| post.combined_average_score.to_f }
+      when 'rating_bgg'
+        Post.order(bgg_rating: :desc)
+      when 'rating_bgg_reverse'
+        Post.order(bgg_rating: :asc)
+      else
+        Post.order(title: :asc)
+      end
     end
 end

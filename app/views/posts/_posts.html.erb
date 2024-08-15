@@ -1,15 +1,17 @@
-<div id="posts">
-  <% @posts.each do |post| %>
-    <div class="row align-items-start">
-      <div class="col">
-        <%= render post %>
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <div class="row align-items-start">
+        <div class="col">
+          <%= render post %>
+          </div>
+        <div class="col">
+          <% if post.thumbnail%>
+            <%= image_tag post.thumbnail %>
+          <% end %>
         </div>
-      <div class="col">
-        <%= image_tag post.thumbnail %>
       </div>
-    </div>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
+      <p>
+        <%= link_to "Show this post", post %>
+      </p>
+    <% end %>
+  </div>
