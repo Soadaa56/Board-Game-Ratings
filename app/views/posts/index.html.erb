@@ -5,6 +5,14 @@
     <label for="sort_by">Sort by:</label>
       <select name="sort_by" id="sort_by" 
       data-action="post-sort#update" data-post-sort-target="select" >
+        <option value="time_posted" <%= "selected" if params[:sort_by] == "time_posted" %> >Newest</option>
+        <option value="time_posted_reverse" <%= "selected" if params[:sort_by] == "time_posted_reverse" %> >Oldest</option>
+        <option value="alphabetical" <%= "selected" if params[:sort_by] == "alphabetical" %> >A-Z</option>
+        <option value="alphabetical_reverse" <%= "selected" if params[:sort_by] == "alphabetical_reverse" %> >Z-A</option  >
+        <option value="rating" <%= "selected" if params[:sort_by] == "rating" %> >Highest Rating</option>
+        <option value="rating_reverse" <%= "selected" if params[:sort_by] == "rating_reverse" %> >Lowest Rating</option>
+        <option value="rating_bgg" <%= "selected" if params[:sort_by] == "rating_bgg" %> >Highest Rating BGG</option>
+        <option value="rating_bgg_reverse" <%= "selected" if params[:sort_by] == "rating_bgg_reverse" %> >Lowest Rating BGG</option>
       </select>
   </div>
   <br>
