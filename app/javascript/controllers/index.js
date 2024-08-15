@@ -12,3 +12,6 @@ application.register("modals", ModalsController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import PostSortController from "./post_sort_controller"
+application.register("post-sort", PostSortController)
