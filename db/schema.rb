@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_03_225501) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_15_171616) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_03_225501) do
     t.float "bgg_rating"
     t.string "image_pin"
     t.integer "bgg_id"
+    t.string "thumbnail"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
