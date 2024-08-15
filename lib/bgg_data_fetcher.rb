@@ -70,7 +70,7 @@ class BggDataFetcher
       doc.xpath("//boardgame").each do |game|
         game_image_url = game.xpath("image").text
         game_thumbnail_url = game.xpath("thumbnail").text
-        game_description = game.xpath("description").text
+        game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
 
         results << { game_image_url: game_image_url, game_thumbnail_url: game_thumbnail_url, game_description: game_description}
       end
