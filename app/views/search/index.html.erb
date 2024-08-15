@@ -8,19 +8,12 @@
       <tr>
         <th><%= sort_link(@query, :title, "Game", default_order: :asc) %></th>
         <th><%= sort_link(@query, :body, "Description") %></th>
-        <th><%= sort_link(@query, :ratings, "Our Average Ratings") %></th>
+        <th><%= sort_link(@query, :ratings, "Average Ratings") %></th>
         <th><%= sort_link(@query, :bgg_ratings, "BGG Rating") %></th>
       </tr>
     </thead>
     <tbody>
-      <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, post %></td>
-        <td><%= post.body.truncate_words(25) %></td>
-        <td><%= post.ratings.average(:score) %></td>
-        <td><%= post.bgg_rating %></td>
-      </tr>
-      <% end %>
+      <%= render "posts" %>
     </tbody>
   </table>
 </div>

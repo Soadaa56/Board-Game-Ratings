@@ -1,17 +1,14 @@
 <p style="color: green"><%= notice %></p>
 <div class="container">
-  <h1><u>All Board Games Ranked</u></h1>
-  </br></br>
-  
-  <div id="posts">
-    <% @posts.each do |post| %>
-      <%= render post %>
-      <p>
-        <%= link_to "Show this post", post %>
-      </p>
-      </br></br>
-    <% end %>
+  <h1><u>All Board Games</u></h1>
+  <div data-controller="post-sort">
+    <label for="sort_by">Sort by:</label>
+      <select name="sort_by" id="sort_by" 
+      data-action="post-sort#update" data-post-sort-target="select" >
+      </select>
   </div>
+  <br>
+  <%= render "posts" %>
 </div>
 
 
