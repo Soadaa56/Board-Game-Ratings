@@ -10,14 +10,16 @@
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "jquery", "data-turbo-track": "reload", defer: true %>
     
-    <%# /bin/dev is required for my custom.css to load %>
+    <%# /bin/dev is required for my custom.css to reload %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
     <header>
       <%= render "layouts/navbar" %>
-      <%= render "layouts/alerts" %>
+
+      <%# Causing double alerts/notices %>
+      <%#= render "layouts/alerts" %>
     </header>
     <main>
       <%= turbo_frame_tag "modal" %>
