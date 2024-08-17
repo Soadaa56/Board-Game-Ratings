@@ -1,9 +1,3 @@
-# Upon making a custom class for use on a personal project with some 'real' world problems, I do see how this could be
-# refactored to be more clean and give each function a singular purpose. I would keep game_search the same, but have
-# seperate functions for each piece of information. The conn == 200 and doc == Nokogiri::XML could go into private
-# functions. Then the game_details could just call a bunch of these functions and only a single connection was made.
-# I will look into refactoring to improve my ruby class skills.
-
 require 'faraday'
 require 'nokogiri'
 
@@ -11,53 +5,25 @@ class BggDataFetcher
   BASE_URL = 'https://api.geekdo.com/xmlapi/'.freeze
 
   def fetch_board_game_rating(game_id)
-    conn = Faraday.get("#{BASE_URL}boardgame/#{game_id}?stats=1")
+    doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
+    game_average_rating = doc.at_xpath("//average").text.to_f
 
-    if conn.status == 200
-      doc = Nokogiri::XML(conn.body)
-      game_average_rating = doc.at_xpath("//average").text.to_f
-
-      game_average_rating ? game_average_rating.round(1) : nil
-    else
-      puts "Connection failed for game id: #{conn.status}"
-      nil
-    end
+    game_average_rating ? game_average_rating.round(1) : nil
   end
 
   def fetch_board_game_search(game_name)
-    conn = Faraday.get("#{BASE_URL}search?search=#{game_name}")
+    doc = faraday_conn("#{BASE_URL}search?search=#{game_name}")
     results = []
 
-    if conn.status == 200
-      doc = Nokogiri::XML(conn.body)
+    doc.xpath("//boardgame").each do |game|
+      game_id = game.attr("objectid")
+      name = game.xpath("name").text
+      year = game.xpath("yearpublished").text
 
-      doc.xpath("//boardgame").each do |game|
-        game_id = game.attr("objectid")
-        name = game.xpath("name").text
-        year = game.xpath("yearpublished").text
-
-        results << { game_id: game_id, name: name, year: year }
-      end
-
-      results
-    else
-      puts "Connection failed for search: #{conn.status}"
-      nil
+      results << { game_id: game_id, name:name, year: year }
     end
-  end
 
-  def fetch_board_game_image(game_id)
-    conn = Faraday.get("#{BASE_URL}boardgame/#{game_id}?stats=1")
-
-    if conn.status == 200
-      doc = Nokogiri::XML(conn.body)
-      game_image = doc.xpath("//image")
-
-      game_image ? game_image.text : nil
-    else
-      puts "Connection failed for thumbnail: #{conn.status}"
-      nil
-    end
+    results
   end
 
   def self.fetch_board_game_details(game_id)
@@ -72,11 +38,49 @@ class BggDataFetcher
         game_thumbnail_url = game.xpath("thumbnail").text
         game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
 
-        results << { game_image_url: game_image_url, game_thumbnail_url: game_thumbnail_url, game_description: game_description}
+        results << { game_image_url: game_image_url,
+        game_thumbnail_url: game_thumbnail_url,
+        game_description: game_description }
       end
       results
     else
       puts "Connection failed for details: #{conn.status}"
+      nil
+    end
+  end
+
+  # Unsure why this refactored method fails
+  # def self.fetch_board_game_details(game_id)
+  #   doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
+  #   results = []
+  #   doc.xpath("//boardgame").each do |game|
+  #     game_image_url = game.xpath("image").text
+  #     game_thumbnail_url = game.xpath("thumbnail").text
+  #     game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
+
+  #     results << { game_image_url: game_image_url, game_thumbnail_url: game_thumbnail_url, game_description: game_description }
+  #   end
+  #   results
+  # end
+
+  # Currently not in use
+  def fetch_board_game_image(game_id)
+    doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
+    game_image = doc.xpath("//image")
+
+    game_image ? game_image.text : nil
+  end
+
+
+  private
+
+  def faraday_conn(url)
+    conn = Faraday.get(url)
+
+    if conn.status == 200
+      Nokogiri::XML(conn.body)
+    else
+      Rails.logger.error "Faraday connection failed: #{conn.status}"
       nil
     end
   end
