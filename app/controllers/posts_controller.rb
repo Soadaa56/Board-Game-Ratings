@@ -38,11 +38,6 @@ class PostsController < ApplicationController
       rating.user = current_user
     end
 
-    if @post.bgg_id.present?
-      fetcher = BggDataFetcher.new
-      @post.bgg_rating = fetcher.fetch_board_game_rating(@post.bgg_id)
-    end
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
