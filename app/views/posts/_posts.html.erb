@@ -2,7 +2,7 @@
     <% @posts.each do |post| %>
       <div class="row align-items-start">
         <div class="col">
-          <%= render post %>
+          <%= render post, post_body_length: 200 %>
           </div>
         <div class="col">
           <% if post.thumbnail%>

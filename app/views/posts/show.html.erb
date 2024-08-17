@@ -6,7 +6,8 @@
   </div>
   <div class="row align-items-start">
     <div class="col">
-      <%= render @post %>
+      <%# compromise to truncate post on posts/index but not affect posts/show %>
+      <%= render @post, post_body_length: 5000 %>
       <%= render "ratings/user_ratings" %>
       </div>
     <div class="col">

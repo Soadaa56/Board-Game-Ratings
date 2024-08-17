@@ -2,17 +2,18 @@
   <p class="fs-1" style="text-decoration: underline">
     <strong><%= link_to "#{post.title.capitalize}", post_path(post) %></strong>
   </p>
-
   <p>
     <strong>Description: </strong>
-    <%= post %>
+    <% if post_body_length < 500 %>
+      <%= post.body.truncate(post_body_length, separator: ' ', omission: '... (expand)') %>
+    <% else %>
+      <%= post.body %>
+    <% end %>
   </p>
-
   <p>
     <strong>Posted by: </strong>
     <%= post.user.name.capitalize %>
   </p>
-
   <p>
       <% if post.average_user_score == nil %>
         <strong>User Average Rating: </strong>?
@@ -20,7 +21,6 @@
         <strong>User Average Rating: </strong><%= post.average_user_score %>
       <% end %>
   </p>
-
   <p>
     <% if post.average_admin_score == nil %>
       <strong>Admin Average Rating: </strong>?
@@ -28,13 +28,11 @@
       <strong>Admin Average Rating: </strong><%= post.average_admin_score %>
     <% end %>
   </p>
-
   <p>
     <% if post.average_user_score != nil && post.average_admin_score != nil %>
       <strong>Average Site Score: </strong><%= post.combined_average_score %>
     <% end %>
   </p>
-
   <p>
     <% if post.bgg_rating == nil%>
       <strong>BGG Rating: </strong>?
@@ -42,5 +40,4 @@
       <strong>Bgg Rating: </strong><%= post.bgg_rating %>
     <% end %>
   </p>
-
 </div>
