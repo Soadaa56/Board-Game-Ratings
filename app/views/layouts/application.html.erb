@@ -10,8 +10,8 @@
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "jquery", "data-turbo-track": "reload", defer: true %>
     
-    <%# /bin/dev is required for my custom.css to reload %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
   </head>
 
   <body>
