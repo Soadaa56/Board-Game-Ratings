@@ -15,11 +15,11 @@
     <%= post.user.name.capitalize %>
   </p>
   <p>
-      <% if post.average_user_score == nil %>
-        <strong>User Average Rating: </strong>?
-      <% else %>
-        <strong>User Average Rating: </strong><%= post.average_user_score %>
-      <% end %>
+    <% if post.average_user_score == nil %>
+      <strong>User Average Rating: </strong>?
+    <% else %>
+      <strong>User Average Rating: </strong><%= post.average_user_score %>
+    <% end %>
   </p>
   <p>
     <% if post.average_admin_score == nil %>

@@ -10,11 +10,11 @@
       <%= render @post, post_body_length: 5000 %>
       <%= render "ratings/user_ratings" %>
       </div>
-    <div class="col">
+    <div class="col game-image">
       <% if @post.image_pin%>
         <%= image_tag @post.image_pin, size: "400x400" %>
       <% end %>
-      </div>
+    </div>
   </div>
 
   <br><br>
