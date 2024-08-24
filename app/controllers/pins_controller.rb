@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: %i[ show update destroy ]
   before_action :authenticate_user!
   before_action :set_post
-  
+
   # GET /pins or /pins.json
   def index
     @pins = Pin.all
