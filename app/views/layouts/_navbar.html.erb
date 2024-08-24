@@ -19,6 +19,14 @@
           <a class="nav-link disabled" aria-disabled="true">Personal Favorites</a>
         </li> %>
         <li class="nav-item">
+          <%= button_to "Dark Mode", nil, class: "nav-link active",
+          data: {
+            controller: "dark-mode",
+            action: "dark-mode#toggleDarkMode",
+            "dark-mode-target": "button"
+          } %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'About', about_path, class: 'nav-link' %>
         </li>
       </ul>
