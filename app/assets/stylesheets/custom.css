@@ -1,3 +1,20 @@
+/*  Default; Light Mode */
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+/* Toggle this to body's classList to toggle dark-mode */
+.dark-mode {
+  --background-color: rgb(40, 43, 43);
+  --color: white;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
 .modal {
   /* Center and overlap on screen */
   position: fixed;
@@ -38,8 +55,3 @@ h1 {
 .game-show-description {
   font-size: large;
 }
-
-/* html, .container, body {
-  background-color: rgb(40, 43, 43);
-  color: white;
-} */
