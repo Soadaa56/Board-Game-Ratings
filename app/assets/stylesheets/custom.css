@@ -19,6 +19,7 @@
 .custom-navbar {
   border-bottom : 1px solid darkblue;
   border-bottom-style: groove;
+  margin-bottom: 2rem;
 }
 
 h1 {
@@ -37,3 +38,8 @@ h1 {
 .game-show-description {
   font-size: large;
 }
+
+/* html, .container, body {
+  background-color: rgb(40, 43, 43);
+  color: white;
+} */
