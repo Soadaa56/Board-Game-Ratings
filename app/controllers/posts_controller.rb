@@ -100,7 +100,7 @@ class PostsController < ApplicationController
   end
 
   def details
-    fetcher = BggDataFetcher.fetch_board_game_details(params[:id])
+    fetcher = BggDataFetcher.new.fetch_board_game_details(params[:id])
 
     if fetcher
       render json: fetcher

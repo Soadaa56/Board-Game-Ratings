@@ -30,7 +30,7 @@ export default class extends Controller {
       // I will return json with my BggDataFetcher so I have some experience with json
       const response = await fetch(`/posts/${gameId}/details`);
       const data = await response.json();
-      const game_data_array = data[0]
+      const game_data_array = data[0];
 
       // Add info to form
       formDescription.value = game_data_array.game_description;
