@@ -26,51 +26,23 @@ class BggDataFetcher
     results
   end
 
-  def self.fetch_board_game_details(game_id)
-    conn = Faraday.get("#{BASE_URL}boardgame/#{game_id}?stats=1")
+  def fetch_board_game_details(game_id)
+    doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
     results = []
 
-    if conn.status == 200
-      doc = Nokogiri::XML(conn.body)
+    doc.xpath("//boardgame").each do |game|
+      game_image_url = game.xpath("image").text
+      game_thumbnail_url = game.xpath("thumbnail").text
+      game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
 
-      doc.xpath("//boardgame").each do |game|
-        game_image_url = game.xpath("image").text
-        game_thumbnail_url = game.xpath("thumbnail").text
-        game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
-
-        results << { game_image_url: game_image_url,
+      results << {
+        game_image_url: game_image_url,
         game_thumbnail_url: game_thumbnail_url,
-        game_description: game_description }
-      end
-      results
-    else
-      puts "Connection failed for details: #{conn.status}"
-      nil
+        game_description: game_description
+      }
     end
+    results
   end
-
-  # Unsure why this refactored method fails
-  # def self.fetch_board_game_details(game_id)
-  #   doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
-  #   results = []
-  #   doc.xpath("//boardgame").each do |game|
-  #     game_image_url = game.xpath("image").text
-  #     game_thumbnail_url = game.xpath("thumbnail").text
-  #     game_description = game.xpath("description").text.gsub(/<br\s*\/?>/, ' ')
-
-  #     results << { game_image_url: game_image_url, game_thumbnail_url: game_thumbnail_url, game_description: game_description }
-  #   end
-  #   results
-  # end
-
-  # Currently not in use
-  def fetch_board_game_image(game_id)
-    doc = faraday_conn("#{BASE_URL}boardgame/#{game_id}?stats=1")
-    game_image = doc.xpath("//image")
-
-    game_image ? game_image.text : nil
-  end
-
 
   private
 
