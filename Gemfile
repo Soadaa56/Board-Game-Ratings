@@ -81,3 +81,5 @@ gem "faraday", "~> 2.10"
 gem "nokogiri", "~> 1.15"
 
 gem 'jquery-rails'
+
+gem "jsbundling-rails", "~> 1.3"
