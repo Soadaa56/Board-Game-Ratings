@@ -33,7 +33,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    # Weird to iterate over each rating, but there will only be one at creation so no issue of overiding data
+
+    # Weird to iterate over each rating, but there will only be one at creation so no issue of overwriting data
     @post.ratings.each do |rating|
       rating.user = current_user
     end
