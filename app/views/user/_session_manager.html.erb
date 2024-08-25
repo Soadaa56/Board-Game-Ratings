@@ -5,9 +5,7 @@
     </a>
     <ul class="dropdown-menu dropdown-menu-lg-end">
       <li>
-        <% if current_user.admin? %>
-          <%= link_to "Add Board Game", new_post_path, class: "dropdown-item" %>
-        <% end %>
+        <%= link_to "Add Board Game", new_post_path, class: "dropdown-item" %>
       </li>
       <li>
         <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
