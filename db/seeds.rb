@@ -8,6 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.create(email: "Kevinduffy615@gmail.com",
+            password: "password",
+            password_confirmation: "password",
+            name: "Soadaa",
+            role: User.roles[:admin])
+
 User.create(email: "test@example.com",
             password: "password",
             password_confirmation: "password",
@@ -37,3 +43,13 @@ Post.create(title: "Power Grid",
             image_pin: "https://cf.geekdo-images.com/yd6LuatytHRhcFCxCf-EEg__original/img/OS13C6W4i1XW__wWVVVaqF7BV0c=/0x0/filters:format(jpeg)/pic4459753.jpg",
             bgg_id: 2651,
             thumbnail: "https://cf.geekdo-images.com/yd6LuatytHRhcFCxCf-EEg__thumb/img/jWTonZ5oYNlPzpELKHIJGWSS0Y8=/fit-in/200x150/filters:strip_icc()/pic4459753.jpg")
+
+Rating.create(user_id: 1,
+              post_id: 2,
+              score: 9)
+Rating.create(user_id: 1,
+              post_id: 2,
+              score: 7)
+Rating.create(user_id: 1,
+              post_id: 2,
+              score: 9)
