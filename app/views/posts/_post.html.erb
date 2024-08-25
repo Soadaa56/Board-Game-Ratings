@@ -5,9 +5,9 @@
   <p>
     <strong>Description: </strong>
     <% if post_body_length < 500 %>
-      <%= post.body.truncate(post_body_length, separator: ' ', omission: '... (expand)') %>
+      <%= raw post.body.truncate(post_body_length, separator: ' ', omission: '... (expand)') %>
     <% else %>
-      <%= post.body %>
+      <%= raw post.body %>
     <% end %>
   </p>
   <p>
