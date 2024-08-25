@@ -3,9 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="post-sort"
 export default class extends Controller {
   static targets = ["select"];
-  connect() {
-    console.log("post-sort controller connected");
-  }
+  connect() {  }
 
   update() {
     this.sortPosts();
