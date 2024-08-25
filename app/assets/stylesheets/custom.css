@@ -10,6 +10,11 @@
   --color: white;
 }
 
+.dark-mode .form-check-input {
+  background-color: rgb(40, 43, 43);
+  border: rgb(40, 43, 43);
+}
+
 body {
   background-color: var(--background-color);
   color: var(--color);
