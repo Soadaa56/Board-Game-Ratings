@@ -97,5 +97,5 @@ Rails.application.configure do
 
   # custom
   config.active_record.sqlite3_production_warning=false
-  config.assets.digest = true
+  # config.assets.digest = true
 end
