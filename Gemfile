@@ -24,7 +24,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem "cssbundling-rails"
+# gem "cssbundling-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -82,4 +82,4 @@ gem "nokogiri", "~> 1.15"
 
 gem 'jquery-rails'
 
-gem "jsbundling-rails", "~> 1.3"
+# gem "jsbundling-rails", "~> 1.3"
