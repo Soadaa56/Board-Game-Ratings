@@ -1,5 +1,8 @@
 # README
 
+Link to app deployment on Render https://board-game-ratings.onrender.com/
+Render says it may take up to 50 seconds to load from inactivity (due to free tier).
+
 A side project to gain experience with calling information from external API's. I will be pulling information about board games from the [Board Game Geek's](https://boardgamegeek.com/) [API](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
 This project is more focused on functionality over looking good on the eyes.
 
