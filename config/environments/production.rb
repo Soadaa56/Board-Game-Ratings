@@ -98,4 +98,5 @@ Rails.application.configure do
   # custom
   config.active_record.sqlite3_production_warning=false
   # config.assets.digest = true
+  config.serve_static_files = true
 end
