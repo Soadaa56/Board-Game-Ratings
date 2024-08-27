@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   validates :bgg_id, presence: true, numericality: { only_integer: true }, allow_nil: true, uniqueness: true
   belongs_to :user
   has_many :pins
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   accepts_nested_attributes_for :ratings
 
   # has_rich_text :body
