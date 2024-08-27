@@ -9,7 +9,7 @@
       <%# compromise to truncate post on posts/index but not affect posts/show %>
       <%= render @post, post_body_length: 5000 %>
       <%= render "ratings/user_ratings" %>
-      </div>
+    </div>
     <div class="col game-image">
       <% if @post.image_pin%>
         <%= image_tag @post.image_pin, size: "400x400" %>
@@ -17,13 +17,12 @@
     </div>
   </div>
 
-  <br><br>
+  <br>
   <% if current_user.admin? %>
     <div>
       <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-secondary" %>
-      <br/><br/><br/>
-      <%= link_to 'Destroy', posts_path, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
-      <br/><br/>
+      <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-outline-danger" %>
+      <br>
     </div>
   <% end %>
   <div>
