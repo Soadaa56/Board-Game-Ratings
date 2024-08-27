@@ -21,7 +21,7 @@ export default class extends Controller {
     const formDescription = form["post_body"];
     const formId = form["post_bgg_id"];
     const formImageUrl = form["post_image_pin"];
-    const formThumbnailUrl = form["post_thumbnail_url"];
+    const formThumbnailUrl = form["post_thumbnail"];
 
     formTitle.value = gameName ? gameName : Null;
     formId.value = gameId ? gameId : Null;
